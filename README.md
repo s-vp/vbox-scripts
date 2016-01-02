@@ -10,7 +10,7 @@ vm-destroy.sh
 * delete specisfied VM from Virtualbox repository and 
 * destroy underlaying ZFS Volume
 
-accepts vm name as an input parameter 
+pass VM name as an input parameter 
 
 
 *** 
