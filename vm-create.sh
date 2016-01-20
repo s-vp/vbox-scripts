@@ -43,7 +43,7 @@ case  $os  in
 zvol_root='/dev/zvol/'
 # The zfs pool where are stored the ZVOLs
 zfs_pool='datapool/vmdisks/'
-hostnic=$(cat /etc/rc.conf |grep -v ^# |grep ifconfig |awk -F \_ '{ print $2 }'|awk -F \= '{ print $1 }')
+hostnic=$(cat /etc/rc.conf |grep -v ^# |grep ifconfig |awk -F \_ '{ print $2 }'|awk -F \= '{ print $1 }' |tail -1)
 
 # ZFS snapshot names for a clean state and the previous clean state
 curr='Clean'
@@ -110,7 +110,7 @@ fi
 VBoxManage createvm --name ${new_VM} --ostype $os_type --register --basefolder ${vbox_root}
 VBoxManage modifyvm ${new_VM} --cpus ${cpus} --cpuhotplug on --ioapic on --pae on --hpet on --hwvirtex on  
 VBoxManage modifyvm ${new_VM} --memory ${memory} --pagefusion on --nestedpaging on --largepages on
-VBoxManage modifyvm ${new_VM} --boot1 disk --boot2 dvd --snapshotfolder /vmsnapshots/${new_VM_path} --nic1 nat --nictype1 virtio --nic2 bridged --nictype2 virtio  --bridgeadapter2 ${hostnic}
+VBoxManage modifyvm ${new_VM} --boot1 disk --boot2 dvd --snapshotfolder /vmsnapshots/${new_VM_path} --nic1 nat --nictype1 virtio --nic2 bridged --nictype2 virtio  --bridgeadapter2 "${hostnic}"
 
 
 

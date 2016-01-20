@@ -109,7 +109,7 @@ fi
 VBoxManage createvm --name ${new_VM} --ostype $os_type --register --basefolder ${vbox_root}
 VBoxManage modifyvm ${new_VM} --cpus ${cpus} --cpuhotplug on --ioapic on --pae on --hpet on --hwvirtex on  
 VBoxManage modifyvm ${new_VM} --memory ${memory} --pagefusion on --nestedpaging on --largepages on
-VBoxManage modifyvm ${new_VM} --boot1 disk --boot2 dvd --snapshotfolder /vmsnapshots/${new_VM_path} --nic1 nat --nictype1 virtio --nic2 bridged --nictype2 virtio  --bridgeadapter2 ${hostnic}
+VBoxManage modifyvm ${new_VM} --boot1 disk --boot2 dvd --snapshotfolder /vmsnapshots/${new_VM_path} --nic1 nat --nictype1 virtio --nic2 bridged --nictype2 virtio  --bridgeadapter2 "${hostnic}"
 
 
 
