@@ -9,7 +9,8 @@
 #
 # Caution!
 # Never mix zfs snapshots and VirtualBox snapshots!
-
+# 
+# set -x 
 
 # Set dfault config paraeters
 
@@ -33,7 +34,7 @@ case  $os  in
                     ;;
                 Dragon_64|dragon_64|DragonflyBSD_64)
                     os_type=FreeBSD_64
-                    installiso=/stage/distr/dragon/images/DragonFly-x86_64-LATEST-ISO.iso
+                    installiso=/stage/distr/dragon/DragonFly-x86_64-LATEST-ISO.iso
                     ;;
                 *)
           esac 
@@ -43,7 +44,7 @@ case  $os  in
 zvol_root='/dev/zvol/'
 # The zfs pool where are stored the ZVOLs
 zfs_pool='datapool/vmdisks/'
-hostnic=$(cat /etc/rc.conf |grep -v ^# |grep ifconfig |awk -F \_ '{ print $2 }'|awk -F \= '{ print $1 }' |tail -1)
+hostnic=$(cat /etc/rc.conf |grep -v ^# |grep ifconfig |awk -F \_ '{ print $2 }'|awk -F \= '{ print $1 }' |tail -1 )
 
 # ZFS snapshot names for a clean state and the previous clean state
 curr='Clean'
