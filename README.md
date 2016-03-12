@@ -1,20 +1,8 @@
 ============================================================================================
-bash scripts for VirtualBox VMs provisioning and cloning on top of ZFS Volumes (ZVOLs) 
+shell scripts for VMs provisioning, cloning in VirtualBox on top of ZFS Volumes (ZVOLs) 
 ============================================================================================
 
-
-vm-destroy.sh 
----------------------------------------------------------------------------------
   
-
-* delete specisfied VM from Virtualbox repository and 
-* destroy underlaying ZFS Volume
-
-pass VM name as an input parameter 
-
-
-*** 
-
 
 vm-create.sh
 ---------------------------------------------------------------------------------
@@ -23,6 +11,7 @@ vm-create.sh
 
 accepts vm name as a first input argument (mandatory) 
 other optional arguments (in a given order): 
+
 * ostype (default: OpenBSD_64)
 * number of vcpu (default: 1)
 * amount of RAM (in MB) (default: 256)
@@ -32,7 +21,9 @@ other optional arguments (in a given order):
 NOTE: paths to the zvol hardcoded into the script custom-tailoring and renaming may be required
 
 
+
 *** 
+
 
 
 zvol-snapshot.sh
@@ -64,6 +55,23 @@ other optional arguments (in a given order):
 
 
 NOTE: paths to the zvol hardcoded into the script custom-tailoring and renaming may be required. 
+
+
+*** 
+
+
+
+
+vm-destroy.sh 
+---------------------------------------------------------------------------------
+
+
+* delete specisfied VM from Virtualbox repository and 
+* destroy underlaying ZFS Volume
+
+pass VM name as an input parameter 
+
+
 
 
 *** 
